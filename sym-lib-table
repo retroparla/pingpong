@@ -1,0 +1,7 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "8080ICs")(type "KiCad")(uri "${KIPRJMOD}/8080ICs.kicad_sym")(options "")(descr ""))
+  (lib (name "ADC0802LCN")(type "KiCad")(uri "${KIPRJMOD}/ADC0802LCN.kicad_sym")(options "")(descr ""))
+  (lib (name "LM336Z5")(type "KiCad")(uri "${KIPRJMOD}/LM336Z5.kicad_sym")(options "")(descr ""))
+  (lib (name "AM93L422PC")(type "KiCad")(uri "${KIPRJMOD}/AM93L422PC.kicad_sym")(options "")(descr ""))
+)
