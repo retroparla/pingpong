@@ -1,0 +1,84 @@
+ AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 1 - 12/09/24 19:58:15
+
+
+    1/   0 : 3E 80                      RED:     MVI      A,128
+    2/   2 : D3 00                               OUT      0
+    3/   4 : 3E 20                               MVI      A,32   ; 160
+    4/   6 : 06 0A                      R2:      MVI      B,10
+    5/   8 : D3 01                      R1:      OUT      1
+    6/   A : 3C                                  INR      A
+    7/   B : FE E0                               CPI      224      ; 96
+    8/   D : CA 1B 00                            JZ       FINR  
+    9/  10 : 05                                  DCR      B
+   10/  11 : C2 08 00                            JNZ      R1 
+   11/  14 : C6 10                               ADI      10H      ; 16
+   12/  16 :                                  ;   JM       R2
+   13/  16 : FE E0                               CPI      224      ; 96
+   14/  18 : DA 06 00                            JC       R2
+   15/  1B :                            FINR:    
+   16/  1B :                            
+   17/  1B : 3E 20                      RECT:    MVI      A,32   ; 160
+   18/  1D : D3 01                               OUT      1
+   19/  1F : 3E 00                               MVI      A,0    ;128
+   20/  21 : D3 00                      L1:      OUT      0
+   21/  23 : 3C                                  INR      A
+   22/  24 : FE FF                               CPI      255      ; 127
+   23/  26 : C2 21 00                            JNZ      L1
+   24/  29 : 3E 20                               MVI      A,32   ;160
+   25/  2B : D3 01                      L2:      OUT      1
+   26/  2D : 3C                                  INR      A
+   27/  2E : FE E0                               CPI      224      ; 96
+   28/  30 : C2 2B 00                            JNZ      L2
+   29/  33 : 3E FF                               MVI      A,255    ; 127
+   30/  35 : D3 00                      L3:      OUT      0
+   31/  37 : 3D                                  DCR      A
+   32/  38 : FE 00                               CPI      0      ; 128
+   33/  3A : C2 35 00                            JNZ      L3 
+   34/  3D : 3E E0                               MVI      A,224    ; 96
+   35/  3F : D3 01                      L4:      OUT      1
+   36/  41 : 3D                                  DCR      A
+   37/  42 : FE 20                               CPI      32     ; 160
+   38/  44 : C2 3F 00                            JNZ      L4
+   39/  47 :                            
+   40/  47 : C3 00 00                            JMP RED
+   41/  4A :                            
+ AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 2 - 12/09/24 19:58:15
+
+
+  Symbol Table (* = unused):
+  --------------------------
+
+*ARCHITECTURE :                                      "x86_64-unknown-linux" - |
+*CASESENSITIVE :                  0 - | *CONSTPI :     3.141592653589793239 - |
+*DATE :                  "12/09/24" - | *FALSE :                          0 - |
+ FINR :                          1B C | *FLOATMAX :   1.18973149535725E4932 - |
+*HAS64 :                          1 - |  L1 :                            21 C |
+ L2 :                            2B C |  L3 :                            35 C |
+ L4 :                            3F C | *LISTON :                         1 - |
+*MACEXP :                         7 - | *MOMCPU :                      8080 - |
+*MOMCPUNAME :                "8080" - | *NESTMAX :                      100 - |
+ R1 :                             8 C |  R2 :                             6 C |
+*RECT :                          1B C |  RED :                            0 C |
+*RELAXED :                        0 - | *TIME :                  "19:58:15" - |
+*TRUE :                           1 - | *VERSION :                     142F - |
+*Z80SYNTAX :                      0 - |
+
+     26 symbols
+     18 unused symbols
+
+ AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 3 - 12/09/24 19:58:15
+
+
+  Code Pages:
+  ----------
+
+STANDARD (0 changed characters)
+
+1 code page
+
+0.01 seconds assembly time
+
+     41 lines source file
+      2 passes
+      0 errors
+      0 warnings

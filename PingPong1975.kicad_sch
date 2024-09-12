@@ -7593,16 +7593,17 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at -7.62 26.67 0)
+			(property "Reference" "U1"
+				(at 2.1941 30.48 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" "28C256"
-				(at 2.54 -26.67 0)
+			(property "Value" "28C64"
+				(at 2.1941 27.94 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -7665,24 +7666,6 @@
 					)
 					(fill
 						(type background)
-					)
-				)
-				(pin input line
-					(at -10.16 -12.7 0)
-					(length 2.54)
-					(name "A14"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
 					)
 				)
 				(pin input line
@@ -7984,24 +7967,6 @@
 						)
 					)
 					(number "25"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -10.16 -10.16 0)
-					(length 2.54)
-					(name "A13"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "26"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -9553,15 +9518,6 @@
 		(uuid "63ab193f-db9c-4cfd-b126-221ad236b22a")
 	)
 	(bus_entry
-		(at 208.28 63.5)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "66eb86a4-8bb5-44f8-8f10-41d103e59159")
-	)
-	(bus_entry
 		(at 236.22 135.89)
 		(size 2.54 2.54)
 		(stroke
@@ -10145,15 +10101,6 @@
 			(type default)
 		)
 		(uuid "df375176-2a2f-48cf-af6a-e58536b685e2")
-	)
-	(bus_entry
-		(at 208.28 60.96)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "df7a9184-855c-4770-b9d7-e967a4bf5ae4")
 	)
 	(bus_entry
 		(at 238.76 107.95)
@@ -12373,16 +12320,6 @@
 		)
 		(uuid "712ece63-2bdd-4c47-a73d-ddb7cfdac5fc")
 	)
-	(bus
-		(pts
-			(xy 208.28 60.96) (xy 208.28 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "71dddda8-4684-466c-8169-e96e007459a8")
-	)
 	(wire
 		(pts
 			(xy 58.42 200.66) (xy 66.04 200.66)
@@ -13965,16 +13902,6 @@
 	)
 	(bus
 		(pts
-			(xy 208.28 58.42) (xy 208.28 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ba4aa26f-4e59-478d-a4f5-8aaeb7b65c6a")
-	)
-	(bus
-		(pts
 			(xy 115.57 161.29) (xy 115.57 175.26)
 		)
 		(stroke
@@ -14335,16 +14262,6 @@
 	)
 	(wire
 		(pts
-			(xy 210.82 66.04) (xy 212.09 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c98e0e3f-eef1-45bb-a5d4-5960ece71885")
-	)
-	(wire
-		(pts
 			(xy 186.69 361.95) (xy 186.69 364.49)
 		)
 		(stroke
@@ -14522,16 +14439,6 @@
 			(type default)
 		)
 		(uuid "d20bf43e-5961-4703-a4ad-c00feb7da96f")
-	)
-	(wire
-		(pts
-			(xy 210.82 63.5) (xy 212.09 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d21ea2a6-6741-423b-9f6d-555627d873ca")
 	)
 	(wire
 		(pts
@@ -15442,10 +15349,10 @@
 		)
 		(uuid "1f0a69e5-ba82-4c74-87f7-c22a496b90b5")
 	)
-	(text_box "Dreccionamiento:\n\nROM: 0x0000-0x1FFF (A13=0)\nRAM: 0x2000-0xFFFF (A13=1)"
+	(text_box "Direccionamiento:\n\nROM: 0x0000-0x1FFF (A13=0) (8 kilobytes)\nRAM: 0x2000-0x20FF (A13=1) (256 bytes)"
 		(exclude_from_sim no)
-		(at 134.62 45.72 0)
-		(size 35.56 10.16)
+		(at 234.95 76.2 0)
+		(size 46.99 10.16)
 		(stroke
 			(width 0)
 			(type default)
@@ -15461,7 +15368,7 @@
 		)
 		(uuid "36078bd5-5243-4b22-8163-8ec7eda311e2")
 	)
-	(text_box "No es necesaria la OR del esquema original ya que la EEPROM 28C256 tiene dos entradas para activarla (CE y OE) mientras que la PROM 8207 solo tenia una (CS/WE)"
+	(text_box "No es necesaria la OR del esquema original ya que la EEPROM 28C64 tiene dos entradas para activarla (CE y OE) mientras que la PROM 8207 solo tenia una (CS/WE)"
 		(exclude_from_sim no)
 		(at 236.22 55.88 0)
 		(size 40.64 12.7)
@@ -15603,7 +15510,7 @@
 		)
 		(uuid "106f15fb-1290-4a2d-b78b-789e03afecd1")
 	)
-	(label "DAC2_RD"
+	(label "DAC2_WR"
 		(at 92.71 210.82 0)
 		(fields_autoplaced yes)
 		(effects
@@ -16461,7 +16368,7 @@
 		)
 		(uuid "e373ff6f-1e28-451d-8d08-ff990490e463")
 	)
-	(label "DAC1_RD"
+	(label "DAC1_WR"
 		(at 92.71 200.66 0)
 		(fields_autoplaced yes)
 		(effects
@@ -24446,7 +24353,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b60be080-dca5-411b-9be4-01c9ebb9c854")
-		(property "Reference" "U1"
+		(property "Reference" "ROM"
 			(at 224.4441 22.86 0)
 			(effects
 				(font
@@ -24455,7 +24362,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "28C256"
+		(property "Value" "28C64"
 			(at 224.4441 25.4 0)
 			(effects
 				(font
@@ -24490,9 +24397,6 @@
 				)
 				(hide yes)
 			)
-		)
-		(pin "1"
-			(uuid "690aa6e3-2bd6-49a3-961e-978edc05b92e")
 		)
 		(pin "7"
 			(uuid "26d13c0f-3906-4419-8bca-85ac107072a9")
@@ -24572,13 +24476,10 @@
 		(pin "20"
 			(uuid "abca7485-f63f-4859-ab1b-f3ed08bed812")
 		)
-		(pin "26"
-			(uuid "1b6230bd-dccc-4e11-9b9b-031a5a1f6275")
-		)
 		(instances
 			(project ""
 				(path "/925f831f-14fc-49d2-bb8a-562ceac93277"
-					(reference "U1")
+					(reference "ROM")
 					(unit 1)
 				)
 			)

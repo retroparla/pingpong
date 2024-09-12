@@ -1,0 +1,16 @@
+ORG 0
+
+LD A, &AA
+LD HL, &2000
+LD (HL), A
+
+LD A,0
+LD A, (HL)
+OUT (0), A
+OUT (1), A
+
+JP 0
+
+ORG #1FFF
+NOP
+
