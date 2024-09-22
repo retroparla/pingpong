@@ -1,48 +1,342 @@
- AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 1 - 12/09/24 19:58:15
+ AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 1 - 13/09/24 22:53:58
 
 
-    1/   0 : 3E 80                      RED:     MVI      A,128
-    2/   2 : D3 00                               OUT      0
-    3/   4 : 3E 20                               MVI      A,32   ; 160
-    4/   6 : 06 0A                      R2:      MVI      B,10
-    5/   8 : D3 01                      R1:      OUT      1
-    6/   A : 3C                                  INR      A
-    7/   B : FE E0                               CPI      224      ; 96
-    8/   D : CA 1B 00                            JZ       FINR  
-    9/  10 : 05                                  DCR      B
-   10/  11 : C2 08 00                            JNZ      R1 
-   11/  14 : C6 10                               ADI      10H      ; 16
-   12/  16 :                                  ;   JM       R2
-   13/  16 : FE E0                               CPI      224      ; 96
-   14/  18 : DA 06 00                            JC       R2
-   15/  1B :                            FINR:    
-   16/  1B :                            
-   17/  1B : 3E 20                      RECT:    MVI      A,32   ; 160
-   18/  1D : D3 01                               OUT      1
-   19/  1F : 3E 00                               MVI      A,0    ;128
-   20/  21 : D3 00                      L1:      OUT      0
-   21/  23 : 3C                                  INR      A
-   22/  24 : FE FF                               CPI      255      ; 127
-   23/  26 : C2 21 00                            JNZ      L1
-   24/  29 : 3E 20                               MVI      A,32   ;160
-   25/  2B : D3 01                      L2:      OUT      1
-   26/  2D : 3C                                  INR      A
-   27/  2E : FE E0                               CPI      224      ; 96
-   28/  30 : C2 2B 00                            JNZ      L2
-   29/  33 : 3E FF                               MVI      A,255    ; 127
-   30/  35 : D3 00                      L3:      OUT      0
-   31/  37 : 3D                                  DCR      A
-   32/  38 : FE 00                               CPI      0      ; 128
-   33/  3A : C2 35 00                            JNZ      L3 
-   34/  3D : 3E E0                               MVI      A,224    ; 96
-   35/  3F : D3 01                      L4:      OUT      1
-   36/  41 : 3D                                  DCR      A
-   37/  42 : FE 20                               CPI      32     ; 160
-   38/  44 : C2 3F 00                            JNZ      L4
-   39/  47 :                            
-   40/  47 : C3 00 00                            JMP RED
-   41/  4A :                            
- AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 2 - 12/09/24 19:58:15
+    1/   0 :                                     ; OJO, PONER LA PILA QUE LA VAMOS A USAR
+    2/   0 : 21 F8 20                            LXI      H, 020F8H
+    3/   3 : F9                                  SPHL     
+    4/   4 :                            
+    5/   4 :                            
+    6/   4 : 3E 80                      RED:     MVI      A,128
+    7/   6 : D3 00                               OUT      0
+    8/   8 : 3E 20                               MVI      A,32   ; 160
+    9/   A : 06 0A                      R2:      MVI      B,10
+   10/   C : D3 01                      R1:      OUT      1
+   11/   E : 3C                                  INR      A
+   12/   F : FE E0                               CPI      224      ; 96
+   13/  11 : CA 1F 00                            JZ       FINR  
+   14/  14 : 05                                  DCR      B
+   15/  15 : C2 0C 00                            JNZ      R1 
+   16/  18 : C6 10                               ADI      10H      ; 16
+   17/  1A :                                  ;   JM       R2
+   18/  1A : FE E0                               CPI      224      ; 96
+   19/  1C : DA 0A 00                            JC       R2
+   20/  1F :                            FINR:    
+   21/  1F :                            
+   22/  1F : 3E 20                      RECT:    MVI      A,32   ; 160
+   23/  21 : D3 01                               OUT      1
+   24/  23 : 3E 00                               MVI      A,0    ;128
+   25/  25 : D3 00                      L1:      OUT      0
+   26/  27 : 3C                                  INR      A
+   27/  28 : FE FF                               CPI      255      ; 127
+   28/  2A : C2 25 00                            JNZ      L1
+   29/  2D : 3E 20                               MVI      A,32   ;160
+   30/  2F : D3 01                      L2:      OUT      1
+   31/  31 : 3C                                  INR      A
+   32/  32 : FE E0                               CPI      224      ; 96
+   33/  34 : C2 2F 00                            JNZ      L2
+   34/  37 : 3E FF                               MVI      A,255    ; 127
+   35/  39 : D3 00                      L3:      OUT      0
+   36/  3B : 3D                                  DCR      A
+   37/  3C : FE 00                               CPI      0      ; 128
+   38/  3E : C2 39 00                            JNZ      L3 
+   39/  41 : 3E E0                               MVI      A,224    ; 96
+   40/  43 : D3 01                      L4:      OUT      1
+   41/  45 : 3D                                  DCR      A
+   42/  46 : FE 20                               CPI      32     ; 160
+   43/  48 : C2 43 00                            JNZ      L4
+   44/  4B :                            
+   45/  4B : 16 C8                               MVI      D, 200
+   46/  4D : 1E 78                               MVI      E, 120
+   47/  4F : 7A                         DBOL:    MOV      A,D
+   48/  50 : D3 00                               OUT      0
+   49/  52 : 7B                                  MOV      A,E
+   50/  53 : D3 01                               OUT      1
+   51/  55 : 15                                  DCR      D
+   52/  56 : 15                                  DCR      D
+   53/  57 : 1D                                  DCR      E
+   54/  58 : 1D                                  DCR      E
+   55/  59 : 7B                                  MOV      A,E
+   56/  5A : D3 01                               OUT      1
+   57/  5C : 7A                                  MOV      A,D
+   58/  5D : 06 05                               MVI      B,5
+   59/  5F : D3 00                      L11:     OUT      0
+   60/  61 : 3C                                  INR      A
+ AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 2 - 13/09/24 22:53:58
+
+
+   61/  62 : 05                                  DCR      B
+   62/  63 : C2 5F 00                            JNZ      L11   
+   63/  66 : 4F                                  MOV      C,A
+   64/  67 : 7B                                  MOV      A,E
+   65/  68 : 06 05                               MVI      B,5  
+   66/  6A : D3 01                      L12:     OUT      1
+   67/  6C : 3C                                  INR      A
+   68/  6D : 05                                  DCR      B
+   69/  6E : C2 6A 00                            JNZ      L12   
+   70/  71 : 06 05                               MVI      B,5      
+   71/  73 : 67                                  MOV      H,A
+   72/  74 : 79                                  MOV      A,C
+   73/  75 : D3 00                      L13:     OUT      0
+   74/  77 : 3D                                  DCR      A
+   75/  78 : 05                                  DCR      B
+   76/  79 : C2 75 00                            JNZ      L13
+   77/  7C : 06 05                               MVI      B,5
+   78/  7E : 7C                                  MOV      A,H
+   79/  7F : D3 01                      L14:     OUT      1  
+   80/  81 : 3D                                  DCR      A
+   81/  82 : 05                                  DCR      B
+   82/  83 : C2 7F 00                            JNZ      L14
+   83/  86 :                                     
+   84/  86 :                                     ; PALETAS
+   85/  86 :                            
+   86/  86 : 3E 20                               MVI      A, 32
+   87/  88 : D3 01                               OUT      1
+   88/  8A :                            
+   89/  8A : 3E 08                      PAL:     MVI      A,8
+   90/  8C : D3 00                               OUT      0
+   91/  8E :                            
+   92/  8E :                                     ;MOV      A,M
+   93/  8E : 3E 64                               MVI      A, 100
+   94/  90 :                            
+   95/  90 : D6 0A                               SUI      10
+   96/  92 : 06 14                               MVI      B,20
+   97/  94 : D3 01                      L23:     OUT      1
+   98/  96 : 3C                                  INR      A
+   99/  97 : 05                                  DCR      B
+  100/  98 : C2 94 00                            JNZ      L23
+  101/  9B :                            
+  102/  9B : 3E 20                               MVI      A, 32
+  103/  9D : D3 01                               OUT      1
+  104/  9F : 3E F7                               MVI      A,247
+  105/  A1 : D3 00                               OUT      0
+  106/  A3 :                            
+  107/  A3 : 06 14                               MVI      B,20
+  108/  A5 : 2B                                  DCX      H
+  109/  A6 :                            
+  110/  A6 :                                     ;MOV      A,M
+  111/  A6 : 3E 96                               MVI      A, 150
+  112/  A8 :                            
+  113/  A8 : D6 0A                               SUI      10
+  114/  AA : D3 01                      L24:     OUT      1
+  115/  AC : 3C                                  INR      A
+  116/  AD : 05                                  DCR      B
+  117/  AE : C2 AA 00                            JNZ      L24
+  118/  B1 :                            
+  119/  B1 :                            
+  120/  B1 :                                     ;-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+ AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 3 - 13/09/24 22:53:58
+
+
+  121/  B1 :                                     ; DISM EFECTUA LA PRESENTACION DEL 
+  122/  B1 :                                     ; MARCADOR EN LA PANTALLA
+  123/  B1 :                                     ;
+  124/  B1 :                                     ;
+  125/  B1 :                                     ;
+  126/  B1 :                            
+  127/  B1 :                                     ; MARCADOR INICIAL
+  128/  B1 :                                     ; LXI H, CONT
+  129/  B1 :                                     ; MVI A, 88H
+  130/  B1 :                                     ; MOV M, A
+  131/  B1 :                                     ; LXI H, CONT+1
+  132/  B1 :                                     ; MVI A, 88H
+  133/  B1 :                                     ; MOV M,A
+  134/  B1 :                                     
+  135/  B1 :                            
+  136/  B1 :                            
+  137/  B1 :                            
+  138/  B1 :                            DISM:    
+  139/  B1 : 21 FA 20                            LXI      H,CONT
+  140/  B4 : 16 60                               MVI      D,96
+  141/  B6 : 1E C0                               MVI      E,192
+  142/  B8 : 7E                                  MOV      A,M
+  143/  B9 :                            
+  144/  B9 : 3E 08                               MVI      A,8
+  145/  BB :                            
+  146/  BB : E6 0F                               ANI      0FH
+  147/  BD :                            
+  148/  BD : CD 9E 01                            CALL     DIS8         ; PRIMER DIGITO, JUGADOR 1
+  149/  C0 :                            
+  150/  C0 :                                     ; LXI      H,CONT
+  151/  C0 :                                     ; MVI      D,0D0H
+  152/  C0 :                                     ; MVI      E,40H
+  153/  C0 :                                     ; MOV      A,M
+  154/  C0 :                                     ; RLC
+  155/  C0 :                                     ; RLC
+  156/  C0 :                                     ; RLC
+  157/  C0 :                                     ; RLC
+  158/  C0 :                                     ; ANI      0FH
+  159/  C0 :                                     ; CALL     DIS         ; SEGUNDO DIGITO, JUGADOR 1
+  160/  C0 :                            
+  161/  C0 :                                     ; LXI      H,CONT+1
+  162/  C0 :                                     ; MVI      D,20H
+  163/  C0 :                                     ; MVI      E,40H
+  164/  C0 :                                     ; MOV      A,M
+  165/  C0 :                                     ; RLC
+  166/  C0 :                                     ; RLC
+  167/  C0 :                                     ; RLC
+  168/  C0 :                                     ; RLC
+  169/  C0 :                                     ; ANI      0FH
+  170/  C0 :                                     ; CALL     DIS         ; PRIMER DIGITO, JUGADOR 2
+  171/  C0 :                            
+  172/  C0 :                                     ; LXI      H,CONT+1
+  173/  C0 :                                     ; MVI      D,30H
+  174/  C0 :                                     ; MVI      E,40H
+  175/  C0 :                                     ; MOV      A,M
+  176/  C0 :                                     ; ANI      0FH
+  177/  C0 :                                     ; CALL     DIS         ; SEGUNDO DIGITO, JUGADOR 2
+  178/  C0 :                            
+  179/  C0 : C3 04 00                            JMP      RED
+  180/  C3 :                            
+ AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 4 - 13/09/24 22:53:58
+
+
+  181/  C3 :                            
+  182/  C3 :                                     ; PINTA UN DIGITO EN (D,E)
+  183/  C3 :                            
+  184/  C3 : 17                         DIS:     RAL
+  185/  C4 : 21 CB 01                            LXI      H,TAB
+  186/  C7 : 01 00 00                            LXI      B,0
+  187/  CA : 4F                                  MOV      C,A
+  188/  CB : 09                                  DAD      B
+  189/  CC : 7E                                  MOV      A,M
+  190/  CD : 23                                  INX      H
+  191/  CE : 66                                  MOV      H,M
+  192/  CF : 6F                                  MOV      L,A
+  193/  D0 : 7A                                  MOV      A,D
+  194/  D1 : D3 00                               OUT      0
+  195/  D3 : 7B                                  MOV      A,E
+  196/  D4 : D3 01                               OUT      1  
+  197/  D6 : E9                                  PCHL
+  198/  D7 : 06 09                      DISA:    MVI      B,9
+  199/  D9 : 14                         DISA1:   INR      D
+  200/  DA : 7A                                  MOV      A,D
+  201/  DB : D3 00                               OUT      0
+  202/  DD : 05                                  DCR      B
+  203/  DE : C2 D9 00                            JNZ      DISA1 
+  204/  E1 : C9                                  RET
+  205/  E2 : 06 09                      DISB:    MVI      B,9
+  206/  E4 : 15                         DISB1:   DCR      D
+  207/  E5 : 7A                                  MOV      A,D
+  208/  E6 : D3 00                               OUT      0
+  209/  E8 : 05                                  DCR      B
+  210/  E9 : C2 E4 00                            JNZ      DISB1 
+  211/  EC : C9                                  RET
+  212/  ED :                            
+  213/  ED : 06 07                      DISC:    MVI      B,7
+  214/  EF : 1C                         DISC1:   INR      E
+  215/  F0 : 7B                                  MOV      A,E
+  216/  F1 : D3 01                               OUT      1
+  217/  F3 : 05                                  DCR      B
+  218/  F4 : C2 EF 00                            JNZ      DISC1
+  219/  F7 : C9                                  RET
+  220/  F8 :                            
+  221/  F8 : 06 07                      DISD:    MVI      B,7
+  222/  FA : 1D                         DISD1:   DCR      E
+  223/  FB : 7B                                  MOV      A,E
+  224/  FC : D3 01                               OUT      1
+  225/  FE : 05                                  DCR      B
+  226/  FF : C2 FA 00                            JNZ      DISD1
+  227/ 102 : C9                                  RET
+  228/ 103 :                            
+  229/ 103 : 7B                         DOWN:    MOV      A,E
+  230/ 104 : DE 07                               SBI      7
+  231/ 106 : 5F                                  MOV      E,A
+  232/ 107 : D3 01                               OUT      1
+  233/ 109 : C9                                  RET
+  234/ 10A :                            
+  235/ 10A : CD ED 00                   DIS0:    CALL     DISC
+  236/ 10D : CD ED 00                            CALL     DISC  
+  237/ 110 : CD E2 00                            CALL     DISB
+  238/ 113 : CD F8 00                            CALL     DISD
+  239/ 116 : CD F8 00                            CALL     DISD
+  240/ 119 : CD D7 00                            CALL     DISA
+ AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 5 - 13/09/24 22:53:58
+
+
+  241/ 11C : C3 DF 01                            JMP      FIN 
+  242/ 11F : C9                         DIS1:    RET
+  243/ 120 : CD ED 00                            CALL     DISC  
+  244/ 123 : CD ED 00                            CALL     DISC
+  245/ 126 :                            
+  246/ 126 : C3 DF 01                            JMP      FIN  
+  247/ 129 : CD E2 00                   DIS2:    CALL     DISB
+  248/ 12C : CD ED 00                            CALL     DISC
+  249/ 12F : CD D7 00                            CALL     DISA
+  250/ 132 : CD ED 00                            CALL     DISC
+  251/ 135 : CD E2 00                            CALL     DISB
+  252/ 138 : C3 DF 01                            JMP      FIN
+  253/ 13B : CD ED 00                   DIS3:    CALL     DISC
+  254/ 13E : CD ED 00                            CALL     DISC
+  255/ 141 : CD E2 00                            CALL     DISB
+  256/ 144 : CD 03 01                            CALL     DOWN
+  257/ 147 : CD D7 00                            CALL     DISA
+  258/ 14A : CD 03 01                            CALL     DOWN
+  259/ 14D : CD E2 00                            CALL     DISB
+  260/ 150 : C3 DF 01                            JMP      FIN
+  261/ 153 : CD ED 00                   DIS4:    CALL     DISC
+  262/ 156 : CD ED 00                            CALL     DISC
+  263/ 159 : CD 03 01                            CALL     DOWN
+  264/ 15C : CD E2 00                            CALL     DISB
+  265/ 15F : CD ED 00                            CALL     DISC
+  266/ 162 : C3 DF 01                            JMP      FIN
+  267/ 165 : CD ED 00                   DIS5:    CALL     DISC
+  268/ 168 : CD E2 00                            CALL     DISB
+  269/ 16B : CD ED 00                            CALL     DISC
+  270/ 16E : CD D7 00                            CALL     DISA
+  271/ 171 : CD 03 01                            CALL     DOWN
+  272/ 174 : CD 03 01                            CALL     DOWN
+  273/ 177 : CD E2 00                            CALL     DISB
+  274/ 17A : C3 DF 01                            JMP      FIN
+  275/ 17D : CD ED 00                   DIS6:    CALL     DISC
+  276/ 180 : CD E2 00                            CALL     DISB
+  277/ 183 : CD ED 00                            CALL     DISC
+  278/ 186 : CD 03 01                            CALL     DOWN  
+  279/ 189 : CD F8 00                            CALL     DISD
+  280/ 18C : CD D7 00                            CALL     DISA
+  281/ 18F : C3 DF 01                            JMP      FIN
+  282/ 192 : CD ED 00                   DIS7:    CALL     DISC
+  283/ 195 : CD ED 00                            CALL     DISC
+  284/ 198 : CD E2 00                            CALL     DISB
+  285/ 19B : C3 DF 01                            JMP      FIN
+  286/ 19E : CD ED 00                   DIS8:    CALL     DISC
+  287/ 1A1 : CD E2 00                            CALL     DISB
+  288/ 1A4 : CD ED 00                            CALL     DISC
+  289/ 1A7 : CD D7 00                            CALL     DISA
+  290/ 1AA : CD F8 00                            CALL     DISD
+  291/ 1AD : CD 03 01                            CALL     DOWN
+  292/ 1B0 : CD E2 00                            CALL     DISB
+  293/ 1B3 : CD ED 00                            CALL     DISC
+  294/ 1B6 : C3 DF 01                            JMP      FIN
+  295/ 1B9 : CD ED 00                   DIS9:    CALL     DISC
+  296/ 1BC : CD ED 00                            CALL     DISC
+  297/ 1BF : CD E2 00                            CALL     DISB
+  298/ 1C2 : CD F8 00                            CALL     DISD
+  299/ 1C5 : CD D7 00                            CALL     DISA
+  300/ 1C8 : C3 DF 01                            JMP      FIN
+ AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 6 - 13/09/24 22:53:58
+
+
+  301/ 1CB : 0A 01                      TAB:     DW       DIS0
+  302/ 1CD : 1F 01                               DW       DIS1
+  303/ 1CF : 29 01                               DW       DIS2
+  304/ 1D1 : 3B 01                               DW       DIS3
+  305/ 1D3 : 53 01                               DW       DIS4
+  306/ 1D5 : 65 01                               DW       DIS5
+  307/ 1D7 : 7D 01                               DW       DIS6
+  308/ 1D9 : 92 01                               DW       DIS7
+  309/ 1DB : 9E 01                               DW       DIS8
+  310/ 1DD : B9 01                               DW       DIS9
+  311/ 1DF :                            
+  312/ 1DF :                            
+  313/ 1DF : C9                         FIN:     RET
+  314/ 1E0 : C3 04 00                            JMP RED
+  315/ 1E3 :                            
+  316/ 1E3 :                            
+  317/20F8 :                                     ORG      020F8H
+  318/20F8 :                            INXY: DS 2
+  319/20FA :                            CONT: DS 2
+  320/20FC :                            
+ AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 7 - 13/09/24 22:53:58
 
 
   Symbol Table (* = unused):
@@ -50,23 +344,39 @@
 
 *ARCHITECTURE :                                      "x86_64-unknown-linux" - |
 *CASESENSITIVE :                  0 - | *CONSTPI :     3.141592653589793239 - |
-*DATE :                  "12/09/24" - | *FALSE :                          0 - |
- FINR :                          1B C | *FLOATMAX :   1.18973149535725E4932 - |
-*HAS64 :                          1 - |  L1 :                            21 C |
- L2 :                            2B C |  L3 :                            35 C |
- L4 :                            3F C | *LISTON :                         1 - |
-*MACEXP :                         7 - | *MOMCPU :                      8080 - |
-*MOMCPUNAME :                "8080" - | *NESTMAX :                      100 - |
- R1 :                             8 C |  R2 :                             6 C |
-*RECT :                          1B C |  RED :                            0 C |
-*RELAXED :                        0 - | *TIME :                  "19:58:15" - |
-*TRUE :                           1 - | *VERSION :                     142F - |
-*Z80SYNTAX :                      0 - |
+ CONT :                        20FA C | *DATE :                  "13/09/24" - |
+*DBOL :                          4F C | *DIS :                          0C3 C |
+ DIS0 :                         10A C |  DIS1 :                         11F C |
+ DIS2 :                         129 C |  DIS3 :                         13B C |
+ DIS4 :                         153 C |  DIS5 :                         165 C |
+ DIS6 :                         17D C |  DIS7 :                         192 C |
+ DIS8 :                         19E C |  DIS9 :                         1B9 C |
+ DISA :                         0D7 C |  DISA1 :                        0D9 C |
+ DISB :                         0E2 C |  DISB1 :                        0E4 C |
+ DISC :                         0ED C |  DISC1 :                        0EF C |
+ DISD :                         0F8 C |  DISD1 :                        0FA C |
+*DISM :                         0B1 C |  DOWN :                         103 C |
+*FALSE :                          0 - |  FIN :                          1DF C |
+ FINR :                          1F C | *FLOATMAX :   1.18973149535725E4932 - |
+*HAS64 :                          1 - | *INXY :                        20F8 C |
+ L1 :                            25 C |  L11 :                           5F C |
+ L12 :                           6A C |  L13 :                           75 C |
+ L14 :                           7F C |  L2 :                            2F C |
+ L23 :                           94 C |  L24 :                          0AA C |
+ L3 :                            39 C |  L4 :                            43 C |
+*LISTON :                         1 - | *MACEXP :                         7 - |
+*MOMCPU :                      8080 - | *MOMCPUNAME :                "8080" - |
+*NESTMAX :                      100 - | *PAL :                           8A C |
+ R1 :                            0C C |  R2 :                            0A C |
+*RECT :                          1F C |  RED :                            4 C |
+*RELAXED :                        0 - |  TAB :                          1CB C |
+*TIME :                  "22:53:58" - | *TRUE :                           1 - |
+*VERSION :                     142F - | *Z80SYNTAX :                      0 - |
 
-     26 symbols
-     18 unused symbols
+     59 symbols
+     23 unused symbols
 
- AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 3 - 12/09/24 19:58:15
+ AS V1.42 Beta [Bld 275] - Source File subRED.asm - Page 8 - 13/09/24 22:53:58
 
 
   Code Pages:
@@ -78,7 +388,7 @@ STANDARD (0 changed characters)
 
 0.01 seconds assembly time
 
-     41 lines source file
+    320 lines source file
       2 passes
       0 errors
       0 warnings

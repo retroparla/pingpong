@@ -1,4 +1,4 @@
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 1 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 1 - 22/09/24 14:01:07
 
 
     1/   0 :                            ;         TITLE    'JUEGO DE PING-PONG EN 8080!
@@ -61,7 +61,7 @@
    48/  41 : 1C                                  INR      E
    49/  42 : 7B                                  MOV      A,E
    50/  43 : FE 5E                               CPI      5EH
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 2 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 2 - 22/09/24 14:01:07
 
 
    51/  45 : C2 3D 00                            JNZ      LA2
@@ -124,7 +124,7 @@
    88/  A6 : 23                         LC11:    INX      H
    89/  A7 : 4E                                  MOV      C,M
    90/  A8 : 0D                         LC2:     DCR      C
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 3 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 3 - 22/09/24 14:01:07
 
 
    91/  A9 : CA 7F 00                            JZ       LC 
@@ -187,7 +187,7 @@
   138/  F8 : 23                         MINY1:   INX      H
   139/  F9 : DE 05                               SBI      5
   140/  FB : 2F                                  CMA
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 4 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 4 - 22/09/24 14:01:07
 
 
   141/  FC : 3C                                  INR      A
@@ -250,7 +250,7 @@
   198/ 152 : 7E                                  MOV      A,M
   199/ 153 : 47                                  MOV      B,A
   200/ 154 : 23                                  INX      H
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 5 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 5 - 22/09/24 14:01:07
 
 
   201/ 155 : 4E                                  MOV      C,M
@@ -313,7 +313,7 @@
   258/ 190 :                                     ; DE LA PELOTA
   259/ 190 :                                     ;
   260/ 190 :                                     ;
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 6 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 6 - 22/09/24 14:01:07
 
 
   261/ 190 :                                     ;
@@ -376,7 +376,7 @@
   318/ 1CE :                                     ;
   319/ 1CE :                                     ;
   320/ 1CE :                                     ;
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 7 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 7 - 22/09/24 14:01:07
 
 
   321/ 1CE : 3E A0                      RECT:    MVI      A,0A0H
@@ -439,7 +439,7 @@
   378/ 21F : 21 FC 20                            LXI      H,PXY
   379/ 222 : 77                                  MOV      M,A
   380/ 223 : 3E 22                               MVI      A,22H
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 8 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 8 - 22/09/24 14:01:07
 
 
   381/ 225 : D3 02                               OUT      2
@@ -502,7 +502,7 @@
   438/ 275 :                            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; PAG 9 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   439/ 275 :                            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    
   440/ 275 :                            
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 9 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 9 - 22/09/24 14:01:07
 
 
   441/ 275 : 07                                  RLC
@@ -565,7 +565,7 @@
   498/ 2CB : 05                                  DCR      B
   499/ 2CC : C2 C7 02                            JNZ      DISC1
   500/ 2CF : C9                                  RET
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 10 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 10 - 22/09/24 14:01:07
 
 
   501/ 2D0 : 06 07                      DISD:    MVI      B,7
@@ -628,7 +628,7 @@
   558/ 35D : CD DB 02                            CALL     DOWN  
   559/ 360 : CD D0 02                            CALL     DISD
   560/ 363 : CD AF 02                            CALL     DISA
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 11 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 11 - 22/09/24 14:01:07
 
 
   561/ 366 : C3 B6 03                            JMP      FIN
@@ -691,7 +691,7 @@
   618/ 3D6 : 0E 80                               MVI      C,80H
   619/ 3D8 : 78                         PAR:     MOV      A,B
   620/ 3D9 : 0F                                  RRC
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 12 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 12 - 22/09/24 14:01:07
 
 
   621/ 3DA : E6 7F                               ANI      7FH
@@ -712,7 +712,7 @@
   636/20FE :                            AZD:     DS       1
   637/20FF :                            AZE:     DS       1
   638/2100 :                                     END
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 13 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 13 - 22/09/24 14:01:07
 
 
   Symbol Table (* = unused):
@@ -724,7 +724,7 @@
 *CASESENSITIVE :                  0 - |  CDIS :                         1CB C |
  COMP :                         14F C |  COMP1 :                        166 C |
 *CONSTPI :     3.141592653589793239 - |  CONT :                        20FA C |
-*DATE :                  "09/09/24" - |  DBOL :                         190 C |
+*DATE :                  "22/09/24" - |  DBOL :                         190 C |
  DIS :                          29B C |  DIS0 :                         2E2 C |
  DIS1 :                         2F7 C |  DIS2 :                         300 C |
  DIS3 :                         312 C |  DIS4 :                         32A C |
@@ -765,14 +765,14 @@
  RECT :                         1CE C |  RED :                          1FE C |
 *RELAXED :                        0 - |  SK :                           3D0 C |
  STOP :                         184 C |  STOP1 :                        187 C |
- TAB :                          3A2 C | *TIME :                  "20:23:38" - |
+ TAB :                          3A2 C | *TIME :                  "14:01:07" - |
 *TRUE :                           1 - | *VERSION :                     142F - |
 *Z80SYNTAX :                      0 - |
 
      97 symbols
      17 unused symbols
 
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 14 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 14 - 22/09/24 14:01:07
 
 
   Defined Macros:
@@ -782,7 +782,7 @@ REBOTE                                |
 
       1 macro
 
- AS V1.42 Beta [Bld 275] - Source File code.asm - Page 15 - 09/09/24 20:23:38
+ AS V1.42 Beta [Bld 275] - Source File code.asm - Page 15 - 22/09/24 14:01:07
 
 
   Code Pages:
