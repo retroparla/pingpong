@@ -31,7 +31,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "file:///home/oscar/Descargas/SN74100.PDF"
+		(property "Datasheet" ""
 			(at -1.778 -27.432 0)
 			(effects
 				(font
